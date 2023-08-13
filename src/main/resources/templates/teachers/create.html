@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:replace="~{fragments/main::head('Cadastro de Professor')}"></head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-4" th:insert="~{fragments/sidebar_fragment::sidebar}">
+
+            </div>
+            <div class="col-8">
+                <h1>Cadastro de Professor</h1>
+                <form th:object="${teacherValidator}" class="form" action="/app/teachers/save" method="post">
+                    <div class="form-group">
+                        <label for="name">Nome do professor</label>
+                        <input id="name" name="name" type="text" class="form-control" th:field="*{name}">
+                    </div>
+                    <div class="form-group">
+                        <label for="eligibleDisciplines"></label>
+                        <select id="eligibleDisciplines" multiple class="form-control" th:field ="*{eligibleDisciplines}">
+                            <option th:value="Matemática">Matemática</option>
+                            <option th:value="Portugues" >Portugues</option>
+                            <option th:value="Historia">História</option>
+                        </select>
+                    </div>
+                    <div class="d-flex justify-content-end mt-4">
+                        <button class="btn btn-primary" type="submit">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

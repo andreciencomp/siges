@@ -1,6 +1,6 @@
 package br.com.siges.controllers;
 
-import br.com.siges.models.Discipline;
+import br.com.siges.models.String;
 import br.com.siges.services.DisciplineService;
 import br.com.siges.validators.DisciplineValidator;
 import jakarta.validation.Valid;
@@ -29,11 +29,9 @@ public class DisciplineController {
         if(result.hasErrors()){
             return new ModelAndView("disciplines/create");
         }
-        Discipline discipline = new Discipline();
+        String discipline = new String();
         BeanUtils.copyProperties(disciplineData, discipline);
         disciplineService.save(discipline);
         return new ModelAndView("redirect:/app");
-
-
     }
 }

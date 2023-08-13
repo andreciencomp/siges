@@ -3,13 +3,13 @@ package br.com.siges.models;
 import jakarta.persistence.*;
 
 @Entity
-public class Discipline {
+public class String {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
 
     @Column(nullable = false)
-    private String name;
+    private java.lang.String name;
 
     public long getId() {
         return id;
@@ -19,11 +19,11 @@ public class Discipline {
         this.id = id;
     }
 
-    public String getName() {
+    public java.lang.String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(java.lang.String name) {
         this.name = name;
     }
 }
