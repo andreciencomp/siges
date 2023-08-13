@@ -1,12 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sistema de Gerenciamento Escolar</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"
-    >
-</head>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/main::head('Sistema de Gerencimento Escolar')}"></head>
+
 <body>
 <div class="container">
     <div class="row">
@@ -16,7 +11,8 @@
         </nav>
         <div class="row justify-content-center">
             <div class="col justify-content-center">
-                <h1>Sistema de Gerenciamento escolar</h1>
+                <span th:text="${titulo}">Sistema de Gerenciamento escolar</span>
+
             </div>
         </div>
     </div>

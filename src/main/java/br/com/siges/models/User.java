@@ -19,19 +19,21 @@ public class User implements UserDetails {
 
     @Column(name="password", nullable=false)
     private String password;
+    @Column(nullable = false, unique = true)
+    private String email;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="user-roles", joinColumns = @JoinColumn(name="id_user"),
            inverseJoinColumns = @JoinColumn(name="id_role"))
     private List<Role> roles;
 
     @Column(name="enabled")
-    private boolean enabled;
+    private boolean enabled=true;
 
-    private boolean accountNonExpired;
+    private boolean accountNonExpired=true;
 
-    private boolean accountNonLocked;
+    private boolean accountNonLocked=true;
 
-    private boolean credentialsNonExpired;
+    private boolean credentialsNonExpired=true;
 
     public long getId() {
         return id;
@@ -46,14 +48,36 @@ public class User implements UserDetails {
         return this.roles;
     }
 
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
     @Override
     public String getPassword() {
         return this.password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String getUsername() {
         return this.username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
@@ -93,7 +117,5 @@ public class User implements UserDetails {
         this.enabled = enabled;
     }
 
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
+
 }

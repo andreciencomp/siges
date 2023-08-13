@@ -1,0 +1,42 @@
+<div th:fragment="sidebar" class="flex-column">
+    <div>
+        <div class="d-inline-flex">
+            <i class="bi bi-people-fill"></i>
+            <a class="nav-link text-black" data-bs-toggle="collapse" data-bs-target="#collapse-users"
+               href="#collapse-users"><h5>&nbsp;Gerência de Usuários</h5></a>
+        </div>
+        <nav id="collapse-users" class="collapse">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="/app/users/create">Cadastrar Usuário</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Listar Usuários</a>
+                </li>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div>
+        <div class="d-inline-flex">
+            <i class="bi bi-arrows-collapse"></i>
+            <a class="nav-link text-black" data-bs-toggle="collapse" data-bs-target="#collapse-userss"
+               href="#collapse-users"><h5>&nbsp;Turmas</h5></a>
+        </div>
+        <nav id="collapse-userss" class="collapse">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cadastrar Turma</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Listar Turmas abertas</a>
+                </li>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+
