@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:replace="~{fragments/main::head('Cadastro de Disciplina')}"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div th:insert="~{fragments/sidebar_fragment::sidebar}" class="col-4">
+
+        </div>
+        <div class="col-8">
+            <h1>Cadastro de disciplina</h1>
+            <form th:object="${disciplineValidator}" action="/app/disciplines/save" class="form"  method="post">
+                <div class="form-group">
+                    <label for="name" class="form-label">Nome da disciplina</label>
+                    <input id="name" name="name" type="text" th:errorclass="is-invalid" class="form-control" th:field="*{name}">
+                    <div class="invalid-feedback" th:errors="*{name}"></div>
+                </div>
+                <div class="d-flex justify-content-end mt-3">
+                    <button class="btn btn-primary" type="submit">Cadastrar</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
