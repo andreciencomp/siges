@@ -10,6 +10,8 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
+    @Column(nullable = false)
+    private String name;
 
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "students")
     private List<Classroom> classrooms;
@@ -25,6 +27,14 @@ public class Student {
 
     @OneToOne
     private User user;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public long getId() {
         return id;
