@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:replace="~{fragments/main::head('Cadastro de Horário')}"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div th:insert="~{fragments/sidebar_fragment::sidebar}" class="col-4">
+        </div>
+        <div class="col-8">
+            <div class="d-flex flex-column">
+                <h1>Cadastro de Horário</h1>
+                <form th:object="${scheduleValidator}" class="form" method="post" action="/app/schedules/save">
+                    <div class="form-group">
+                        <label for="dayOfWeek">Dia da Semana</label>
+                        <select id="dayOfWeek" name="dayOfWeek" th:errorclass="is-invalid" class="form-control">
+                            <option th:each="day:${days}" th:value="${day}" th:text="${day.getValue()}"></option>
+                        </select>
+                        <div class="invalid-feedback" th:errors="*{dayOfWeek}"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Horário</label>
+                        <select id="time" name="time" th:errorclass="is-invalid" class="form-control">
+                            <option th:each="t:${times}" th:value="${t}" th:text="${t}"></option>
+                        </select>
+                        <div class="invalid-feedback" th:errors="*{time}"></div>
+                    </div>
+                    <div class="form-group d-flex justify-content-end mt-4">
+                        <button class="btn btn-primary">Cadastrar</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
