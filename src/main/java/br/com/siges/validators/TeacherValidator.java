@@ -1,27 +1,31 @@
 package br.com.siges.validators;
 
-import br.com.siges.models.String;
+import br.com.siges.models.Discipline;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+
+import java.util.List;
 
 public class TeacherValidator {
     @NotNull
-    private java.lang.String name;
+    @NotBlank
+    private String name;
 
-    public String[] eligibleDisciplines;
+    private long[] eligibleDisciplines;
 
-    public java.lang.String getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(java.lang.String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String[] getEligibleDisciplines() {
+    public long[] getEligibleDisciplines() {
         return eligibleDisciplines;
     }
 
-    public void setEligibleDisciplines(String[] eligibleDisciplines) {
+    public void setEligibleDisciplines(long[] eligibleDisciplines) {
         this.eligibleDisciplines = eligibleDisciplines;
     }
 }

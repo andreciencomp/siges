@@ -10,10 +10,11 @@ public class Teacher {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     @Column(nullable = false)
-    private java.lang.String name;
-    @ManyToMany
-    @JoinTable(name="teachers-disciplines", joinColumns = @JoinColumn(name="id_teacher"), inverseJoinColumns = @JoinColumn(name="id_discipline"))
-    private List<String> eligibleDisciplines;
+    private String name;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="teacher-discipline", joinColumns = @JoinColumn(name="id_teacher"),
+            inverseJoinColumns = @JoinColumn(name="id_discipline"))
+    private List<Discipline> eligibleDisciplines;
     private boolean active=true;
     @OneToOne(cascade = CascadeType.ALL)
     private User user;
@@ -26,19 +27,19 @@ public class Teacher {
         this.id = id;
     }
 
-    public java.lang.String getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(java.lang.String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public List<String> getEligibleDisciplines() {
+    public List<Discipline> getEligibleDisciplines() {
         return eligibleDisciplines;
     }
 
-    public void setEligibleDisciplines(List<String> eligibleDisciplines) {
+    public void setEligibleDisciplines(List<Discipline> eligibleDisciplines) {
         this.eligibleDisciplines = eligibleDisciplines;
     }
 

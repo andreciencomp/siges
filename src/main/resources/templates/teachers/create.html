@@ -12,14 +12,14 @@
                 <form th:object="${teacherValidator}" class="form" action="/app/teachers/save" method="post">
                     <div class="form-group">
                         <label for="name">Nome do professor</label>
-                        <input id="name" name="name" type="text" class="form-control" th:field="*{name}">
+                        <input id="name" name="name" type="text" th:errorclass="is-invalid" class="form-control" th:field="*{name}">
+                        <div class="invalid-feedback" th:errors="*{name}"></div>
                     </div>
                     <div class="form-group">
                         <label for="eligibleDisciplines"></label>
-                        <select id="eligibleDisciplines" multiple class="form-control" th:field ="*{eligibleDisciplines}">
-                            <option th:value="Matemática">Matemática</option>
-                            <option th:value="Portugues" >Portugues</option>
-                            <option th:value="Historia">História</option>
+                        <select id="eligibleDisciplines" name="eligibleDisciplines" multiple class="form-select" th:field="*{eligibleDisciplines}">
+                            <option th:each="discipline:${disciplines}" th:value="${discipline.id}" th:text="${discipline.name}"></option>
+
                         </select>
                     </div>
                     <div class="d-flex justify-content-end mt-4">
