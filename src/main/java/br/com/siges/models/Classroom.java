@@ -15,7 +15,7 @@ public class Classroom {
     private String name;
 
     private int capacity;
-
+    @Enumerated(EnumType.STRING)
     private ClassroomStatus status;
     @OneToMany(fetch = FetchType.EAGER)
     private List<TeacherBinding> teacherBinding;
@@ -26,6 +26,8 @@ public class Classroom {
     @JoinTable(name="classroom-student", joinColumns = @JoinColumn(name="id_classroom"),
             inverseJoinColumns = @JoinColumn(name="id_student"))
     private List<Student> students;
+
+    private int year;
 
     public long getId() {
         return id;
@@ -81,5 +83,13 @@ public class Classroom {
 
     public void setStudents(List<Student> students) {
         this.students = students;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 }

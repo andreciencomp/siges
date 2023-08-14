@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:replace="~{fragments/main::head('Cadastro de Turma')}"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div th:insert="~{fragments/sidebar_fragment::sidebar}" class="col-4">
+
+        </div>
+        <div class="col-8">
+            <h1>Cadastro de Turma</h1>
+            <form th:object="${classroomValidator}" class="form" method="post" action="/app/classrooms/save">
+                <div class="form-group">
+                    <label for="schoolGrade">Série Escolar</label>
+                    <select id="schoolGrade" name="schoolGrade" class="form-control">
+                        <option th:each="schoolGrade:${schoolGrades}" th:value="${schoolGrade.id}" th:text="${schoolGrade.name}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">Nome da turma</label>
+                    <input type="text" name="name" id="name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="capacity">Capacidade da turma</label>
+                    <input type="number" id="capacity" name="capacity" class="form-control">
+                </div>
+                <div class="form-group d-flex justify-content-end mt-4">
+                    <input type="submit" class="btn btn-primary" value="Cadastrar">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
