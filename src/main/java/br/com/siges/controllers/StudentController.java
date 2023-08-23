@@ -35,11 +35,18 @@ public class StudentController {
 
     @PostMapping("/save")
     public ModelAndView save(@Valid StudentValidator validator, BindingResult result){
-        System.out.println("grade: " + validator.getId());
         Student student = new Student();
         BeanUtils.copyProperties(validator, student);
         studentService.save(student, validator.getCurrentSchoolGrade());
-        return new ModelAndView("redirect:/app");
+        return new ModelAndView("redirect:/app/students/");
+    }
+
+    @GetMapping("/")
+    public ModelAndView index(){
+        ModelAndView mv = new ModelAndView("students/index");
+        List<Student> students = studentService.getStudents();
+        mv.addObject("students",students);
+        return mv;
     }
 
 }

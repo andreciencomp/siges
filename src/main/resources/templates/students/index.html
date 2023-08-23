@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:replace="~{fragments/main::head('Alunos')}"></head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-4" th:insert="~{fragments/sidebar_fragment::sidebar}">
+
+        </div>
+        <div class="col-8">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Série</th>
+                </tr>
+
+                </thead>
+                <tbody>
+                <tr th:each="student : ${students}">
+                    <td th:text="${student.name}"></td>
+                    <td th:text="${student.currentSchoolGrade.name}"></td>
+                    <td>
+                        <button class="btn btn-outline-primary">Detalhes</button>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

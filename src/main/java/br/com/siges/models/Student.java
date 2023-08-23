@@ -24,6 +24,8 @@ public class Student {
 
     @ManyToOne
     private SchoolGrade currentSchoolGrade;
+    @Column(unique = true)
+    private String cpf;
 
     @OneToOne
     private User user;
@@ -35,6 +37,7 @@ public class Student {
     public void setName(String name) {
         this.name = name;
     }
+
 
     public long getId() {
         return id;
@@ -74,6 +77,14 @@ public class Student {
 
     public void setCurrentSchoolGrade(SchoolGrade currentSchoolGrade) {
         this.currentSchoolGrade = currentSchoolGrade;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public User getUser() {
