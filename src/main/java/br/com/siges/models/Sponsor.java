@@ -10,10 +10,29 @@ public class Sponsor {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name="sponsor-student", joinColumns = @JoinColumn(name="id_sponsor"),
-            inverseJoinColumns = @JoinColumn(name="id_student"))
+    @Column(name="cpf", nullable = false, unique = true, updatable = true)
+    private String cpf;
+
+    @Column(nullable = false)
+    private String name;
+    @ManyToMany(mappedBy = "sponsors",fetch = FetchType.EAGER)
     private List<Student> students;
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     @OneToOne(cascade = CascadeType.ALL)
     private User user;

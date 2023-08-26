@@ -16,7 +16,8 @@ public class Student {
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "students")
     private List<Classroom> classrooms;
 
-    @ManyToMany(mappedBy = "students", fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER,cascade = {CascadeType.REFRESH, CascadeType.PERSIST})
+    @JoinTable(name="student-sponsor", joinColumns = @JoinColumn(name="student"),inverseJoinColumns = @JoinColumn(name="sponsor"))
     private List<Sponsor> sponsors;
 
     @OneToMany(fetch = FetchType.EAGER)

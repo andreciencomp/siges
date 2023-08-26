@@ -10,6 +10,7 @@
         <div class="col-8">
             <h1>Cadastro de Série Escolar</h1>
             <form th:object="${schoolGradeValidator}"class="form" method="post" action="/app/schoolgrades/save">
+                <h1 th:errors="*{name}"></h1>
                 <div class="form-group">
                     <label for="nome">Nome da série</label>
                     <input type="text" id="name" name="name" class="form-control">

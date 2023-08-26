@@ -8,24 +8,24 @@ public class SponsorValidator {
     @NotNull
     @NotBlank
     @Size(min=3, max=64)
-    private String sponsorName;
+    private String name;
     @NotNull
     @NotBlank
-    private String sponsorCpf;
+    private String cpf;
 
-    public String getSponsorName() {
-        return sponsorName;
+    public String getName() {
+        return name;
     }
 
-    public void setSponsorName(String sponsorName) {
-        this.sponsorName = sponsorName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getSponsorCpf() {
-        return sponsorCpf;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setSponsorCpf(String sponsorCpf) {
-        this.sponsorCpf = sponsorCpf;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 }

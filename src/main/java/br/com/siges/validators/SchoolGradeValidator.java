@@ -7,8 +7,7 @@ public class SchoolGradeValidator {
     @NotBlank
     @Size(min = 3, max = 64)
     private String name;
-    @Min(3)
-    @Max(16)
+
     private int sequence;
 
     public String getName() {

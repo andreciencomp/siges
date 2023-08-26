@@ -20,7 +20,7 @@ public class SchoolGradeController {
     @Autowired
     SchoolGradeService schoolGradeService;
     @GetMapping("/create")
-    public ModelAndView create(){
+    public ModelAndView create(SchoolGradeValidator validator){
 
         return new ModelAndView("school-grades/create");
     }

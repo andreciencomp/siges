@@ -18,7 +18,33 @@
                     <select id="currentSchoolGrade" class="form-control" name="currentSchoolGrade">
                         <option th:each="grade:${schoolGrades}" th:value="${grade.id}" th:text="${grade.name}"></option>
                     </select>
+                    <h5 class="mt-4">Responsáveis pelo aluno</h5>
+                    <div class="form mt-1 p-2 card">
+
+                        <div class="form-group">
+                            <label>CPF</label>
+                            <input class="form-control" type="text" th:field="*{sponsors[0].cpf}">
+                        </div>
+                        <div class="form-group">
+                            <label>Nome</label>
+                            <input class="form-control" type="text" th:field="*{sponsors[0].name}">
+                        </div>
+
+                    </div>
+                    <div class="form mt-1 p-2 card">
+
+                        <div class="form-group">
+                            <label>CPF</label>
+                            <input class="form-control" type="text" th:field="*{sponsors[1].cpf}">
+                        </div>
+                        <div class="form-group">
+                            <label>Nome</label>
+                            <input class="form-control" type="text" th:field="*{sponsors[1].name}">
+                        </div>
+
+                    </div>
                 </div>
+
                 <div class="form-group d-flex justify-content-end mt-4">
                     <button class="btn btn-primary" type="submit">Cadastrar</button>
                 </div>
@@ -26,6 +52,8 @@
         </div>
     </div>
 </div>
-
+<script>
+</script>
 </body>
+
 </html>

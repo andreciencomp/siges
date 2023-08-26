@@ -1,9 +1,11 @@
 package br.com.siges.validators;
 
-import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class StudentValidator {
 
@@ -13,6 +15,8 @@ public class StudentValidator {
     @Size(min = 3, max=64)
     private String name;
     private String cpf;
+
+    private List<SponsorValidator> sponsors;
 
     private long currentSchoolGrade;
 
@@ -38,5 +42,13 @@ public class StudentValidator {
 
     public void setCurrentSchoolGrade(long currentSchoolGrade) {
         this.currentSchoolGrade = currentSchoolGrade;
+    }
+
+    public List<SponsorValidator> getSponsors() {
+        return sponsors;
+    }
+
+    public void setSponsors(List<SponsorValidator> idSponsors) {
+        this.sponsors = idSponsors;
     }
 }
