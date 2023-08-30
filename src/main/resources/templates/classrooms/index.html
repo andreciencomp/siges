@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:replace="~{fragments/main::head('Turmas')}"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-4" th:insert="~{fragments/sidebar_fragment::sidebar}">
+        </div>
+        <div class="col-8">
+            <table class="table table-striped">
+                <thead class="thead-light">
+                <tr>
+                    <th>Nome da turma</th>
+                    <th>Série</th>
+                    <th>Capacidade</th>
+                    <th>Alunos Matriculados</th>
+                    <th>Situação</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="classroom : ${classrooms}">
+                    <td th:text="${classroom.name}"></td>
+                    <td th:text="${classroom.schoolGrade.name}"></td>
+                    <td th:text="${classroom.capacity}"></td>
+                    <td th:text="${#lists.size(classroom.students)}"></td>
+                    <td th:text="${classroom.status.value}"></td>
+                    <td><a class="btn btn-primary btn-sm">Ver turma</a></td>
+
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
