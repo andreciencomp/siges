@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.Year;
+import java.util.List;
 
 @Service
 public class ClassroomService {
@@ -25,5 +26,9 @@ public class ClassroomService {
         classroom.setStatus(ClassroomStatus.OPEN);
         classroom.setYear(Year.now().getValue());
         return classroomRepository.save(classroom);
+    }
+
+    public List<Classroom> listAll(){
+        return classroomRepository.findAll();
     }
 }

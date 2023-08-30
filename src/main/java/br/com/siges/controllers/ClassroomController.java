@@ -44,7 +44,16 @@ public class ClassroomController {
         BeanUtils.copyProperties(validator, classroom);
         classroomService.save(classroom, validator.getSchoolGrade());
 
-        return new ModelAndView("redirect:/app");
+        return new ModelAndView("redirect:/app/classrooms/");
+    }
+
+    @GetMapping("/")
+    public ModelAndView listAll(){
+
+        List<Classroom> classrooms = classroomService.listAll();
+        ModelAndView mv = new ModelAndView("classrooms/index");
+        mv.addObject("classrooms", classrooms);
+        return mv;
     }
 
 }
